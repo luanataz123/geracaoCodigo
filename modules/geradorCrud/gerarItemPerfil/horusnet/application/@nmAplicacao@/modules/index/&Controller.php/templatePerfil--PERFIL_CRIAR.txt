@@ -1,0 +1,6 @@
+if (in_array('%perfilAtual%', $this->dados['viewsPermitidas'])) {
+            $this->dados['template']['%perfilAtual%'] = '?p=' . $this->view->encodeUrl(PATH_URL_MODULE . 'module=%perfilAtual%&task=init');
+            
+        }
+        
+        

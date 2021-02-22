@@ -1,0 +1,4 @@
+<li ng-if="mostrarTab('%perfilAtual%')" id="nav-tab-%tab-primaria%">
+                <a ui-sref="%perfilAtual%" ui-sref-active="active">%ItemMenuAcentuado%</a>
+            </li>
+            

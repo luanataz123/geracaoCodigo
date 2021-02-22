@@ -1,0 +1,10 @@
+<th scope="col" class="col-md-1" tabindex="0" style="cursor:pointer;" ng-click="changeSorting('%DS_GRID%', '%orderBy%')" ng-keydown="($event.keyCode === 13 || $event.keyCode === 32) && changeSorting('%DS_GRID%', '%orderBy%')">
+	                	<span>%DS_LABEL%
+                			<i  aria-label="ordenar por %DS_LABEL%" title="ordenar" class="fa fa-sort fa-lg" ng-show="sort.column != '%DS_GRID%'"></i>
+                			<span ng-show="sort.column == '%DS_GRID%'">
+                				<span aria-label="ordenar de forma decrescente" title="ordenar de forma decrescente" ng-show="!sort.descending" class="glyphicon glyphicon-triangle-top"></span>
+                				<span aria-label="ordenar de forma crescente" title="ordenar de forma crescente" ng-show="sort.descending" class="glyphicon glyphicon-triangle-bottom"></span>
+                			</span>
+                		</span>
+                </th>
+                

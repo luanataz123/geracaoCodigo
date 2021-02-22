@@ -1,0 +1,22 @@
+$scope.refresh%NmTabela% = function (%nmTabela%) {
+        return $http.post(Constants.horus.dados.url.consultar%NmTabela%, {'%nmTabela%': %nmTabela%}).then(function (response) {
+            $scope.arr%NmTabela% = response.data.dados;
+            return response.data.dados;
+        });
+    };    
+    
+    $scope.%nmTabela%Selecionado = function (item) {
+        if (item) {
+            $scope.@nmTabela@.%NM_COLUNA% = item.%COLUNA_ID%;
+        }
+    };    
+    
+    if ($scope.@nmTabela@.%NM_COLUNA%) {
+        $scope.arr%NmTabela% = [{
+                %COLUNA_ID%: $scope.@nmTabela@.%NM_COLUNA%,
+                %COLUNA_DS%: $scope.@nmTabela@.DS_%COLUNA%
+            }];
+        $scope.@nmTabela@.%COLUNA% = $scope.arr%NmTabela%[0];
+    }  
+
+	

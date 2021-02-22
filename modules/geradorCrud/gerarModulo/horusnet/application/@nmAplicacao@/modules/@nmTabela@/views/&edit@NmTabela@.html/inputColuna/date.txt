@@ -1,0 +1,18 @@
+<div class="row">
+                    <div class="form-group %required% col-xs-6 col-md-4" show-errors>
+                        <label class="control-label" for="%NM_COLUNA%">%DS_LABEL%</label>
+                        <input type="date" class="form-control" 
+                               name="%NM_COLUNA%" 
+                               id="%NM_COLUNA%" 
+                               ng-model="@nmTabela@.%NM_COLUNA%"
+                               %NG_MIN_MAX_PERIODO% 
+                               %required%>
+                        <p class="help-block" role="alert" ng-if="cadastro@NmTabela@.%NM_COLUNA%.$error.required">
+                            <i class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i>%DS_LABEL% &eacute; obrigat&oacute;rio(a)
+                        </p>
+                        <p class="help-block" role="alert" ng-if="cadastro@NmTabela@.%NM_COLUNA%.$error.date">
+                            <i class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i>%DS_LABEL% &eacute; inv&aacute;lido(a)
+                        </p>
+                        %ERROR_MIN_MAX_PERIODO%
+                    </div>
+                </div>

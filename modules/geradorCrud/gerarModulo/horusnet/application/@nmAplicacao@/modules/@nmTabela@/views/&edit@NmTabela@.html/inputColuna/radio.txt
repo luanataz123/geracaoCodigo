@@ -1,0 +1,10 @@
+<div class="row">
+                    <div class="form-group col-xs-12 col-md-12" tabindex="0">
+                        <label>%DS_LABEL%</label>
+                        <span class="sr-only">Campo obrigat&oacute;rio</span>
+                    </div>
+                </div>
+                <div class="row">
+                    %htmlOpcoes%
+                </div>
+                

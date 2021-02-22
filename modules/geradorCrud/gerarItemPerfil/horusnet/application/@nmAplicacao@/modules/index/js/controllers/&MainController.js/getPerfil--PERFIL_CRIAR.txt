@@ -1,0 +1,5 @@
+$scope.get%PerfilAtual% = function () {
+        return Constants.horus.dados.template.%perfilAtual%;
+    };
+
+	

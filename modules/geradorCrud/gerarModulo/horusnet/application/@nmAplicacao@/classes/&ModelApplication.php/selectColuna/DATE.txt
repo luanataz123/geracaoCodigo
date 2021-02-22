@@ -1,0 +1,2 @@
+TO_CHAR(%ALIAS_NM_COLUNA%, 'YYYY-MM-DD') AS %AS_DS_COLUNA%
+                

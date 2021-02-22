@@ -1,0 +1,2 @@
+CONVERT(%ALIAS_NM_COLUNA%, 'UTF8') AS %AS_DS_COLUNA%
+                

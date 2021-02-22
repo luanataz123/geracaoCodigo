@@ -1,0 +1,2 @@
+<td scope="row">{{@nmTabela@.%DS_GRID%}}</td>
+             

@@ -1,0 +1,28 @@
+/*Se houver um CRUD para essa tabela, não copiar esta função, usar a consulta gerada quando for criado o CRUD*/
+    public function consultar%NmTabela%($debug = false){
+        $and = "";
+        $bind = array();
+        
+        $sql = "SELECT
+                    %COLUNA_ID%,
+                    CONVERT(%COLUNA_DS%, 'UTF8') AS %COLUNA_DS%
+                FROM %NM_ESQUEMA%.%NM_TABELA%
+                WHERE st_ativo = 1";
+        
+        $this->setPagination(1, 300);
+        
+        $retorno = $this->pageExecuteSelect($sql, $bind);
+        
+        if($debug){
+            print_r($this->query); die;
+        }
+        
+        if(!$retorno){
+            print json_encode($this->error);
+            die;
+        }
+        
+        return $retorno;
+    }
+    
+    

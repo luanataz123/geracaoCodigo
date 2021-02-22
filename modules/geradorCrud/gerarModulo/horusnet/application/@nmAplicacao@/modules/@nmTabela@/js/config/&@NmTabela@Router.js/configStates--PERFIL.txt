@@ -1,0 +1,25 @@
+.state('%perfilAtual%.@nmTabela@', {
+            url: '/@nmTabela@',
+            controller: '@NmTabela@Controller',
+            templateUrl: Constants.horus.dados.template.@nmTabela@,
+            resolve: {
+                perfil: function () {
+                    return {valor: '%perfilAtual%'};
+                }
+            },
+            title: "@ItemMenuAcentuado@ - Consulta"
+        })
+
+        .state('%perfilAtual%.editar@NmTabela@', {
+            url: '/editar@NmTabela@',
+            templateUrl: Constants.horus.dados.template.editar@NmTabela@,
+            controller: 'Editar@NmTabela@Controller',
+            resolve: {
+                perfil: function () {
+                    return {valor: '%perfilAtual%'};
+                }
+            },
+            title: "@ItemMenuAcentuado@ - Cadastro/Edição"
+        })
+
+        

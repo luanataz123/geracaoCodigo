@@ -1,0 +1,11 @@
+$scope.arrOpcoes%NmColuna% = [%ArrKeyValue%];
+    
+    $scope.format%NmColuna% = function(model) {
+        for (var i=0; i< $scope.arrOpcoes%NmColuna%.length; i++) {
+            if (model === $scope.arrOpcoes%NmColuna%[i].KEY) {
+                return $scope.arrOpcoes%NmColuna%[i].VALUE;
+            }
+        }
+    };
+    
+	

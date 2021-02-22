@@ -1,0 +1,2 @@
+$bind['%NM_COLUNA%'] = substr($this->params['%NM_COLUNA%'], 0, 10);
+        

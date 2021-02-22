@@ -1,0 +1,5 @@
+if (in_array('%perfilAtual%', $this->dados['viewsPermitidas'])) {
+    require_once PATH_APPLICATION_MODULES . '/%perfilAtual%/js/controllers/%PerfilAtual%Controller.js';
+    require_once PATH_APPLICATION_MODULES . '/%perfilAtual%/js/config/%PerfilAtual%Router.js';
+}
+

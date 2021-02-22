@@ -1,0 +1,2 @@
+$bind['%NM_COLUNA%'] = $this->params['%NM_COLUNA%'];
+        

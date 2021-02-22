@@ -1,0 +1,2 @@
+LEFT JOIN %NM_ESQUEMA%.%NM_TABELA% %alias% ON @aliasTabela@.%ID_PRINCIPAL% = %alias%.%ID_SECUNDARIA%
+                

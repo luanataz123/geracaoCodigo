@@ -1,0 +1,5 @@
+if (true /*in_array('%PERFILATUAL%', $this->dados['autoriza']['modules'])*/) {
+            $this->dados['viewsPermitidas'][] = '%perfilAtual%';
+        }
+        
+        

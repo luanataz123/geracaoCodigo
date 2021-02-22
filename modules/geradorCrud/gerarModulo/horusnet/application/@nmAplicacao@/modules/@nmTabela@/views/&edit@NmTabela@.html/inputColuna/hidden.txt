@@ -1,0 +1,7 @@
+<input type="hidden"
+                           class="form-control" 
+                           name="%NM_COLUNA%"
+                           ng-model="@nmTabela@.%NM_COLUNA%"
+                           >
+                           
+                

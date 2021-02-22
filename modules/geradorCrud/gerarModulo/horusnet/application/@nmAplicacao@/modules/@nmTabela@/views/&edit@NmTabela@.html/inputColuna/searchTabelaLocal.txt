@@ -1,0 +1,35 @@
+<div class="row">
+                    <div class="form-group %required% col-xs-12 col-md-4" show-errors>
+						<label class="control-label" for="%NM_COLUNA%">%DS_LABEL%</label>
+                        <div class="input-group">
+                            <input type="search"
+                            	   autocomplete="off"
+                                   class="form-control"
+                                   typeahead-editable="false" 
+                                   typeahead-min-length="0"
+                                   typeahead-wait-ms="0"
+                                   typeahead-show-hint="false"
+                                   typeahead-no-results="noResults%NmColuna%"
+                                   name="%NM_COLUNA%"
+                                   id="%NM_COLUNA%"
+                                   ng-model="@nmTabela@.%NM_COLUNA%"
+                                   placeholder="Selecionar %DS_LABEL%..."
+                                   uib-typeahead="item.%ID_FK% as item.%DS_FK% for item in %nmTabelaFK% | filter:$viewValue"
+                                   typeahead-input-formatter="format%NmTabelaFK%($model)"
+                                   %required%>
+                            <span class="input-group-addon"><i class="fa fa-search" aria-hidden="true"></i></span>
+                        </div>
+                        <div class="ta-error"
+                            role="alert"
+                            ng-show="noResults%NmColuna%">
+                               <i class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i> Nenhum resultado encontrado
+                        </div>                        
+                        
+                        <div role="alert" class="help-block">
+                            <p id="erro-%NM_COLUNA%">
+                                <i class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i> %DS_LABEL% &eacute; obrigat&oacute;rio(a)
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                

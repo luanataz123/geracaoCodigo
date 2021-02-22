@@ -1,0 +1,18 @@
+    $scope.%nmTabela% = Constants.horus.dados.%nmTabela%.dados;
+    
+    $scope.format%NmTabela% = function(model) {
+        for (var i=0; i< $scope.%nmTabela%.length; i++) {
+            if (model === $scope.%nmTabela%[i].%COLUNA_ID%) {
+                return $scope.%nmTabela%[i].%COLUNA_DS%;
+            }
+        }
+        return '';
+    };
+    
+    if ($scope.@nmTabela@.%COLUNA_ID%){
+    	if (!$scope.format%NmTabela%($scope.@nmTabela@.%COLUNA_ID%)){
+    		$scope.%nmTabela%.push({'%COLUNA_ID%': $scope.@nmTabela@.%COLUNA_ID%, '%COLUNA_DS%': $scope.@nmTabela@.%COLUNA_DS%});
+    	}
+    }
+    
+    

@@ -1,0 +1,67 @@
+<div class="panel panel-default">
+    <div class="panel-body" style="padding-bottom:0">
+           <div class="form-group col-xs-12 col-md-2">
+	        <button class="btn btn-primary" 
+	                ng-click="cadastrar@NmTabela@()">
+	            Incluir
+	        </button>
+        </div>
+       
+        <form class="basic-form" role="form" ng-submit="consultarArr@NmTabela@()">
+        <div>
+	        <div class="row">
+	            <div class="form-group col-xs-12 col-md-4">
+	                <label class="sr-only" for="@DS_GRID_COLUNA_PESQUISA@">
+	                    @LabelColunaPesquisa@
+	                </label>
+	                <input class="form-control" type="text" 
+	                       ng-model="ds_pesquisa.@DS_GRID_COLUNA_PESQUISA@" 
+	                       placeholder="Pesquisar por @LabelColunaPesquisa@" 
+	                       name="@DS_GRID_COLUNA_PESQUISA@">
+	            </div>
+
+	            <div class="form-group col-xs-12 col-md-4">
+	                <button type="submit" class="btn btn-info" button-spinner="@nmTabela@Loading">Filtrar</button>
+	                <button class="btn btn-info" ng-click="limparPesquisa@NmTabela@()">Limpar</button>
+	            </div>
+	            
+	        </div>
+        </div>
+        </form>
+    </div>
+</div>
+
+<div class="table-responsive">
+    <table role="grid" aria-rowcount="{{totalItems}}" class="table table-hover">
+        <thead>
+            <tr>
+                #colunasTH#  
+                <th scope="col" class="col-md-1 text-right">Editar</th>
+                <th scope="col" class="col-md-1 text-right">Excluir</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr dir-paginate="@nmTabela@ in arr@NmTabela@ | itemsPerPage: itemsPerPage" current-page="pagination.current" total-items="totalItems">
+                #colunasTD#
+                <td class="text-right">
+                    <button class="btn btn-primary btn-xs" 
+                            title="Editar" 
+                            ng-click="editar@NmTabela@(@nmTabela@)"
+                            >
+                        <span class="glyphicon glyphicon-pencil"></span>
+                        <span class="sr-only">Editar</span></button>&nbsp;
+                </td>
+                <td class="text-right">
+                    <modal-delete-confirm-click
+                            deletar="@nmTabela@"
+                            acao="excluir@NmTabela@"
+                            atualizar="consultarArr@NmTabela@()">
+                    </modal-delete-confirm-click>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="text-center">
+	<dir-pagination-controls></dir-pagination-controls>
+</div>

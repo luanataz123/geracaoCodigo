@@ -1,0 +1,14 @@
+<div aria-live="assertive" id="announcer" class="screen-reader-only"></div>
+<div class="container-fluid" ng-app="GeracaoCodigo" ng-controller="MainController" style="height: 100%; padding: 0px">
+    <div class="container-fluid">
+        
+        <ul class="nav nav-tabs nav-tabs-main">
+            <li ng-if="mostrarTab('interfaceAngularJS')" id="nav-tab-interface-angularjs">
+                <a ui-sref="interfaceAngularJS" ui-sref-active="active">Interface em AngularJS</a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="container-fluid" ui-view="">
+    </div>
+</div>

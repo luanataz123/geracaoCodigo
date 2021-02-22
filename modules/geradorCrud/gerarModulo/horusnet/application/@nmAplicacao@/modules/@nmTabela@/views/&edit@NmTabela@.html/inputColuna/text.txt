@@ -1,0 +1,16 @@
+<div class="row">
+                    <div class="form-group %required% col-xs-12 col-md-4" show-errors>
+						<label class="control-label" for="%NM_COLUNA%">%DS_LABEL%</label>
+                        <input type="text" 
+                        	   class="form-control" 
+                               name="%NM_COLUNA%" 
+                               id="%NM_COLUNA%" 
+                               ng-model="@nmTabela@.%NM_COLUNA%" 
+                               maxlength="%QT_TAMANHO%"
+                               %required% >
+                        <p class="help-block" role="alert">
+                            <i class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i>%DS_LABEL% &eacute; obrigat&oacute;rio(a)
+                        </p>	
+					</div>
+                </div>
+                

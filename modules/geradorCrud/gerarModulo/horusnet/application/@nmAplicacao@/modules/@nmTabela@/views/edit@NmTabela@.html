@@ -1,0 +1,31 @@
+<div>
+    <form class="basic-form" name="cadastro@NmTabela@" role="form" ng-submit="salvar@NmTabela@()">
+        <div class="panel panel-default">
+
+            <div class="panel-heading">
+                <h3><span ng-bind-html="titleForm"></span> @ItemMenuAcentuado@</h3>
+            </div>
+            
+            <div class="panel-body">
+                    	#inputColuna#
+            </div>
+            <div class="panel-footer text-right">
+                <save-button 
+                    salvar="@nmTabela@"
+                    form="cadastro@NmTabela@"
+                    acao="salvar@NmTabela@"
+                    atualizar="cancelarEdicao@NmTabela@()"
+                    validar="validar@NmTabela@(cadastro@NmTabela@)">
+                </save-button>
+                <button type="button" class="btn btn-warning"
+                    modal-confirm-click
+                    confirm-if="cadastro@NmTabela@.$dirty"
+                    title="Cancelar"
+                    message="Todos os dados n&atilde;o salvos ser&atilde;o perdidos. Confirma Cancelamento?"
+                    do="cancelarEdicao@NmTabela@()">
+                    <span>Cancelar</span>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

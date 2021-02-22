@@ -1,0 +1,183 @@
+<div>
+    <form class="basic-form" name="geradorCrudForm" role="form" 
+          >
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3><span ng-bind-html="titleForm"></span> Gerador de CRUD</h3>
+            </div>
+            <div class="panel-body">
+                <!-- INCLUIR AQUI OS FORMULÁRIOS -->
+                <div class="row">
+                    <div class="form-group col-xs-12 col-md-4" show-errors>
+                        <label for="NM_APLICACAO">Nome da pasta da aplicação (horusnet/application/???):</label>
+                        <input type="text" class="form-control" 
+                               name="NM_APLICACAO" 
+                               id="NM_APLICACAO" 
+                               ng-model="geradorCrud.NM_APLICACAO" 
+                               required >
+                        <p class="help-block" role="alert">
+                            <i class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i>Preencha o nome da pasta da aplicação
+                        </p>
+                    </div>
+                    
+                    <div class="form-group col-xs-12 col-md-4" show-errors>
+                        <label for="NM_PERFIS">Nome(s) do(s) perfil(s) separados por vírgula (ex. Administração Local,Administração Nacional):</label>
+                        <input type="text" class="form-control" 
+                               name="NM_PERFIS" 
+                               id="NM_PERFIS" 
+                               ng-model="geradorCrud.NM_PERFIS" 
+                               required >
+                        <p class="help-block" role="alert">
+                            <i class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i>Preencha o(s) nome(s) do(s) perfil(s)
+                        </p>
+                    </div>                    
+
+                    <div class="form-group col-xs-12 col-md-4" show-errors>
+                        <label for="NM_ITEM_MENU">Nome do item de menu:</label>
+                        <input type="text" class="form-control" 
+                               name="NM_ITEM_MENU" 
+                               id="NM_ITEM_MENU" 
+                               ng-model="geradorCrud.NM_ITEM_MENU" 
+                               required >
+                        <p class="help-block" role="alert">
+                            <i class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i>Preencha o nome do item de menu
+                        </p>
+                    </div>                    
+
+                </div>
+                <div class="row">
+                    <div class="form-group col-xs-12 col-md-4" show-errors>
+                        <label for="DS_TITULO_APLICACAO">Título da Aplicação:</label>
+                        <input type="text" class="form-control" 
+                               name="DS_TITULO_APLICACAO" 
+                               id="DS_TITULO_APLICACAO" 
+                               ng-model="geradorCrud.DS_TITULO_APLICACAO" 
+                               required >
+                        <p class="help-block" role="alert">
+                            <i class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i>Preencha o título da aplicação
+                        </p>
+                    </div> 
+                </div>
+                <div class="row">
+                    <div class="form-group col-xs-12 col-md-4">
+                        <label>
+                            <input type="checkbox" ng-model="geradorCrud.ST_GERAR_ITEM_PERFIL"
+                                   name="ST_GERAR_ITEM_PERFIL" 
+                                   ng-true-value="'1'" ng-false-value="'0'">
+                            Criar novos perfis no menu principal
+                        </label>
+                    </div>  
+                    <div ng-if="geradorCrud.ST_GERAR_ITEM_PERFIL && geradorCrud.ST_GERAR_ITEM_PERFIL==1" class="form-group col-xs-12 col-md-8" show-errors>
+                        <label for="GERAR_NM_ITEM_PERFIS">Nome do(s) perfil(s) do menu principal que deve(m) ser gerado(s) separados por vírgula (ex. Administração Local,Administração Nacional):</label>
+                        <input type="text" class="form-control" 
+                               name="GERAR_NM_ITEM_PERFIS" 
+                               id="GERAR_NM_ITEM_PERFIS" 
+                               ng-model="geradorCrud.GERAR_NM_ITEM_PERFIS" 
+                               required >
+                        <p class="help-block" role="alert">
+                            <i class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i>Preencha os nomes dos itens de menu que devem ser gerados
+                        </p>
+                    </div> 
+                </div>
+                <div class="row">
+                    <div class="form-group col-xs-6 col-md-2">
+                        <label>
+                            <input type="checkbox" ng-model="geradorCrud.ST_GERAR_APLICACAO"
+                                   name="ST_GERAR_APLICACAO" 
+                                   ng-true-value="'1'" ng-false-value="'0'">
+                            Criar aplicação completa
+                        </label>
+                    </div>  
+				</div>                
+                <div class="row">
+                    <div class="form-group col-xs-12 col-md-8" show-errors>
+                    <p>Executar o seguinte select (substituindo as variáveis necessárias) e colar abaixo o resultado separado por ponto e vírgula:
+                    	<br><br>
+                    	SELECT owner, table_name, column_name, data_type, data_length, nullable<br>
+        FROM all_tab_cols<br>
+        WHERE owner = '[MEU_SCHEMA]'<br> 
+        AND table_name = '[MINHA_TABELA]'<br>
+        ORDER BY column_id
+                    </p>
+                        <label for="DS_TABELA">Descrição da Tabela (no formato MEU_SCHEMA ; MINHA_TABELA ; MINHA_COLUNA ; TIPO_DE_DADO ; TAMANHO ; PERMITE_NULL): </label>
+                        <textarea class="form-control" 
+                               name="DS_TABELA" 
+                               id="DS_TABELA" 
+                               ng-model="geradorCrud.DS_TABELA" 
+                               required ></textarea>
+                        <p class="help-block" role="alert">
+                            <i class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i>Preencha a descrição da tabela
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                
+	                 <div class="form-group col-xs-12 col-md-4">
+	                     <button ng-click="carregarTabela(geradorCrudForm);" type="button" class="btn btn-primary" title="Carregar Tabela" aria-label="Carregar Tabela" button-spinner="carregarTabelaLoading">
+	                         <span>Carregar Tabela</span>
+	                     </button>
+	                 </div>  
+                </div>
+                 <div class="row">
+	                 <div class="table-responsive">
+		                <table class="table table-hover" role="grid">
+		                    <thead>
+		                        <tr>
+		                            <th scope="col" class="col-md-1">PK (apenas uma)</th>
+		                            <th scope="col" class="col-md-1">Ordenação inicial (apenas uma)</th>
+		                            <th scope="col" class="col-md-1">Pesquisar por (apenas uma)</th>
+		                            <th scope="col" class="col-md-1">Coluna</th>
+		                            <th scope="col" class="col-md-1">Tipo</th>
+		                            <th scope="col" class="col-md-4">Input</th>
+		                            <th scope="col" class="col-md-1">Label</th>
+		                            <th scope="col" class="col-md-2">Tabela FK Ex. MEU_SCHEMA.MINHA_TABELA; ID_TABELA;DS_TABELA</th>
+		                            <th scope="col" class="col-md-2">Array opções JSON Ex. {"key1":"value1","key2":"value2"}</th>
+		                        </tr>
+		                    </thead>
+		                    <tbody>
+		                        <tr ng-repeat="c in geradorCrud.colunas">
+		                        	<td>
+	                                    <input type="checkbox" ng-model="c.PK" checklist-value="c.NM_COLUNA" ng-change="toggleSelection(c)">
+	                                </td>
+		                        	<td>
+	                                    <input type="checkbox" ng-model="c.selected" checklist-value="c.NM_COLUNA" ng-change="toggleSelection(c)">
+	                                </td>
+		                        	<td>
+	                                    <input type="checkbox" ng-model="c.PESQUISA" checklist-value="c.NM_COLUNA" ng-change="toggleSelection(c)">
+	                                </td>
+		                            <td>{{c.NM_COLUNA}}</td>
+		                            <td>{{c.DS_TIPO}}</td>
+		                            <td class="text-center">
+										<select class="form-control" ng-model="c.DS_TIPO_INPUT" ng-change="onSelectInput(c)" required>
+									    	<option ng-repeat="option in opcoesInput[c.DS_TIPO]" value="{{option.KEY}}">{{option.VALUE}}</option>
+									    </select>                                    
+	                                    
+		                            </td>
+		                            <td class="text-center">
+										<input class="form-control" type="text" ng-model="c.DS_LABEL" required>
+		                            </td>
+		                            <td class="text-center">
+										<input class="form-control" type="text" ng-model="c.TABELA_FK" ng-disabled="!c.DS_TIPO_INPUT || !arrInputTabelaFK.includes(c.DS_TIPO_INPUT)" ng-required="c.DS_TIPO_INPUT && arrInputTabelaFK.includes(c.DS_TIPO_INPUT)">
+		                            </td>
+		                            <td class="text-center">
+										<input class="form-control" type="text" ng-model="c.ARRAY_OPCOES" ng-disabled="!c.DS_TIPO_INPUT || !arrInputArrayOpcoes.includes(c.DS_TIPO_INPUT)" ng-required="c.DS_TIPO_INPUT && arrInputArrayOpcoes.includes(c.DS_TIPO_INPUT)">
+		                            </td>
+		                        </tr>
+		                    </tbody>
+		                </table>
+		            </div>
+		            </div>
+            </div>
+            
+            
+            <div class="panel-footer text-right">
+            	<button 
+            		ng-click="gerarCrud(geradorCrudForm);" 
+            		type="button" class="btn btn-primary" 
+            		title="Gerar CRUD" aria-label="Gerar CRUD">
+                    <span>Gerar CRUD</span>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

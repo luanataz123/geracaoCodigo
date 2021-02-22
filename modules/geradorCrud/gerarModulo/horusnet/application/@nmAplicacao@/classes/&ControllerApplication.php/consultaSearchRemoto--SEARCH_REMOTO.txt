@@ -1,0 +1,14 @@
+/**
+     * Retorna uma string no formato JSON
+     *
+     * @access protected
+     * @return string/JSON
+     */
+    protected function consultar%NmTabela%() {
+        $json = $this->model->consultar%NmTabela%();
+        
+        print json_encode($json);
+        die;
+    }
+    
+    

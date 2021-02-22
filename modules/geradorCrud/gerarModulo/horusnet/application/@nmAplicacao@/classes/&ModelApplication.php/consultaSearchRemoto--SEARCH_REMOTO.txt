@@ -1,0 +1,38 @@
+/*Se houver um CRUD para essa tabela, copiar apenas a parte que gera o $and, usando a consulta gerada quando for criado o CRUD*/
+    public function consultar%NmTabela%($debug = false){
+        $and = "";
+        $bind = array();
+        
+        if(!empty($this->params['%nmTabela%'])){
+            $camposPesquisa[] = " UPPER(CONVERT(%COLUNA_DS%, 'ZHT16MSWIN950')) LIKE CONVERT(UPPER(:DS_PESQUISA), 'ZHT16MSWIN950') ";
+            /*$camposPesquisa[] = " [OUTRA_COLUNA] LIKE UPPER(:DS_PESQUISA) ";*/
+
+            $and .= " AND (" . implode(' OR ', $camposPesquisa). ")";
+            
+            $bind['DS_PESQUISA'] = "%{$this->params['%nmTabela%']}%";
+        }
+        
+        $sql = "SELECT
+                    %COLUNA_ID%,
+                    CONVERT(%COLUNA_DS%, 'UTF8') AS %COLUNA_DS%
+                FROM %NM_ESQUEMA%.%NM_TABELA%
+                WHERE st_ativo = 1
+                {$and}";
+        
+        $this->setPagination(1, 300);
+        
+        $retorno = $this->pageExecuteSelect($sql, $bind, $debug, false);
+        
+        if($debug){
+            print_r($this->query); die;
+        }
+        
+        if(!$retorno){
+            print json_encode($this->error);
+            die;
+        }
+        
+        return $retorno;
+    }
+    
+    

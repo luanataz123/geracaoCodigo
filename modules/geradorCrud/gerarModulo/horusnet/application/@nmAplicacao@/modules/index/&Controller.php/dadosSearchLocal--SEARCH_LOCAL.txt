@@ -1,0 +1,3 @@
+$this->params['SomenteAtivos'] = 'S';
+            $this->dados['%nmTabela%'] = $this->model->consultar%NmTabela%();
+            

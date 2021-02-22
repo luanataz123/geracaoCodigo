@@ -1,0 +1,41 @@
+<div class="row">
+                    <div class="form-group %required% col-xs-12 col-md-6" show-errors>
+                        <label class="control-label" for="%NM_COLUNA%">%DS_LABEL%</label>
+
+                        <div  class="input-group">
+	                            <input type="search"
+	                                autocomplete="off"
+	                                class="form-control"
+	                                name="%NM_COLUNA%"
+	                                id="%NM_COLUNA%"
+	                                ng-model="@nmTabela@.%COLUNA%"
+	                                placeholder="Digitar %DS_LABEL%..."
+	                                uib-typeahead="item as item.%DS_FK% for item in refresh%NmTabelaFK%($viewValue)"
+	                                typeahead-editable="false" 
+	                                typeahead-min-length="3"
+	                                typeahead-loading="%nmColuna%Loading"
+	                                typeahead-wait-ms="500"
+	                                typeahead-show-hint="false"
+	                                typeahead-no-results="noResults%NmColuna%"
+	                                typeahead-on-select="%nmTabelaFK%Selecionado($item, $model, $label, $event)"
+	                                %required%>
+	                            <span class="input-group-addon">
+				                	<i ng-show="!%nmColuna%Loading" class="fa fa-search" aria-hidden="true"></i>
+				                	<i ng-show="%nmColuna%Loading" class="fa fa-spinner fa-spin" aria-hidden="true"></i>
+			                	</span>
+	                        </div>
+	                        
+                        <div class="ta-error"
+                            role="alert"
+                            ng-show="noResults%NmColuna%">
+                               <i class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i>
+                               &nbsp;Nenhum resultado encontrado
+                        </div>
+                        <div role="alert" class="help-block">
+                            <p>
+                                <i class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i>
+                                &nbsp;%DS_LABEL% &eacute; obrigat&oacute;rio(a)
+                            </p>
+                        </div>
+                    </div>
+                </div>

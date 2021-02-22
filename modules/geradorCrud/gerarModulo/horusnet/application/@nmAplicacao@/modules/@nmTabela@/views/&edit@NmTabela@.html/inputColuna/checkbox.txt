@@ -1,0 +1,10 @@
+<div class="row">
+                    <div class="form-group col-xs-6 col-md-2">
+                        <label>
+                            <input type="checkbox" ng-model="@nmTabela@.%NM_COLUNA%"
+                                   name="%NM_COLUNA%" 
+                                   %htmlOpcoes%>
+                            %DS_LABEL%
+                        </label>
+                    </div>
+            	</div>

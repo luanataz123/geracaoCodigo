@@ -1,0 +1,2 @@
+$this->dados['url']['consultar%NmTabela%'] = '?p=' . $this->view->encodeUrl(PATH_URL_APPLICATION . 'module=@nmTabela@&action=consultar%NmTabela%&task=dados');
+            

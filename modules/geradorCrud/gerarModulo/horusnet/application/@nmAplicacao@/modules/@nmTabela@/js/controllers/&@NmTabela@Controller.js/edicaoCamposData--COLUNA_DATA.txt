@@ -1,0 +1,1 @@
+        @nmTabela@.%NM_COLUNA% = new Date(@nmTabela@.%NM_COLUNA% + 'T00:00:00');

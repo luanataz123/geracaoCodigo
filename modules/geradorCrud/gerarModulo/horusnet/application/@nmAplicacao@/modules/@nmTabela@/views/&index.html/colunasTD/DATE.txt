@@ -1,0 +1,2 @@
+<td scope="row">{{@nmTabela@.%DS_GRID%| date: "dd/MM/y"}}</td>
+             
